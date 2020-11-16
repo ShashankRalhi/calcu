@@ -1,0 +1,36 @@
+#cal-display input
+{
+	padding: 17px;
+}
+
+#cal-num
+{
+	float: left;
+	overflow: hidden;
+	background-color: yellow;
+}
+
+#cal-opt
+{
+	background-color: red;
+	float: left;
+}
+
+.button
+{
+	padding: 10px;
+	margin: 10px;
+}
+
+
+.button-opt
+{
+	padding: 10px;
+	margin: 10px;
+}
+
+#center{
+	padding: 10px;
+	margin: 10px;
+	margin-left: 40%;
+}

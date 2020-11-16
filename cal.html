@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Calculator</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<section>
+		<div id="main-div">
+			<div id="cal-body">
+
+				<!-- Part-1 -->
+				<div id="cal-display">
+					<input type="text" id="display">
+				</div>
+				<!-- Part-1 End -->
+
+
+				<!-- Part-2 -->
+				<div id="cal-num">
+					<div class="row">
+						<input type="button" value="1" class="button" onclick="cal(1)">
+
+						<input type="button" value="2" class="button" onclick="cal(2)">
+
+						<input type="button" value="3" class="button" onclick="cal(3)">
+					</div>
+
+					<div class="row">
+						<input type="button" value="4" class="button" onclick="cal(4)">
+						<input type="button" value="5" class="button" onclick="cal(5)">
+						<input type="button" value="6" class="button" onclick="cal(6)">
+					</div>
+
+					<div class="row">
+						<input type="button" value="7" class="button" onclick="cal(7)">
+						<input type="button" value="8" class="button" onclick="cal(8)">
+						<input type="button" value="9" class="button" onclick="cal(9)">
+					</div>
+
+					<div class="row">
+						<input type="button" value="0" class="button" id="center" onclick="cal(0)">
+					</div>
+				</div>
+				<!-- Part-2 End -->
+
+
+				<!-- Part-3 -->
+				<div id="cal-opt">
+					<div class="row">
+						<input type="button" value="+" class="button-opt" onclick="cal('+')">
+					</div>
+
+					<div class="row">
+						<input type="button" value="-" class="button-opt" onclick="cal('-')">
+					</div>
+
+					<div class="row">
+						<input type="button" value="*" class="button-opt" onclick="cal('*')">
+					</div>
+
+					<div class="row">
+						<input type="button" value="/" class="button-opt" onclick="cal('/')">
+					</div>
+
+				</div>
+				<!-- Part-3 End -->
+			</div>
+		</div>
+	</section>
+
+	<p id="demo"></p>
+
+	<script>
+
+		let temp = 0, result = 0;
+
+		function cal(num) {
+
+
+			if (num !== '+' && num !== '-' && num !== '*' && num !== '/') {
+				let display = document.getElementById("display").value += num;
+				temp = parseInt(display);
+			}
+
+			else if (num == '+') {
+				result = result + temp;
+				temp = 0;
+				document.getElementById("display").value = '';
+			}
+
+			else if (num == '-') {
+				if (result == 0) {
+					result = temp - result;
+					temp = 0;
+					document.getElementById("display").value = '';
+				} else {
+					result = result - temp;
+					temp = 0;
+					document.getElementById("display").value = result;
+				}
+			}
+
+			else if (num == '*') {
+				if (result == 0) {
+					result = temp;
+					temp = 0;
+					document.getElementById("display").value = '';
+				} else {
+					result = result * temp;
+					temp = 0;
+					document.getElementById("display").value = result;
+				}
+			}
+
+			else if (num == '/') {
+				if (result == 0) {
+					result = temp;
+					temp = 0;
+					document.getElementById("display").value = '';
+				} else {
+					result = result / temp;
+					temp = 0;
+					document.getElementById("display").value = result;
+				}
+			}
+			console.log(temp);
+			console.log(result);
+		}
+	</script>
+</body>
+
+</html>
